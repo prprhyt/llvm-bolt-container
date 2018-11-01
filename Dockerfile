@@ -18,7 +18,7 @@ WORKDIR /root/
 #build llvm-bolt
 RUN mkdir build
 WORKDIR /root/build/
-RUN cmake -G Ninja ../llvm
+RUN cmake -G Ninja -DLLVM_PARALLEL_LINK_JOBS=1 -DLLVM_USE_SPLIT_DWARF=ON ../llvm
 RUN ninja
 
 
